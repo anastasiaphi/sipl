@@ -10,7 +10,7 @@ requires-python = ">=3.10"
 dependencies = ["lark>=1.1"]
 
 [project.optional-dependencies]
-dev = ["pytest"]
+dev = ["pytest", "pytest-cov"]
 
 [tool.setuptools.packages.find]
 where = ["src"]
