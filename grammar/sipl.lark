@@ -1,0 +1,38 @@
+?stmt: simple
+     | stmt ";" simple                          -> seq
+
+?simple: VAR ":=" expr                          -> assign
+       | "if" cond "then" simple "else" simple  -> if_stmt
+       | "while" cond "do" simple               -> while_stmt
+       | "begin" stmt "end"                     -> block
+       | "skip"                                 -> skip
+
+?cond: or_cond
+
+?or_cond: not_cond
+        | or_cond ("∨" | "or") not_cond         -> or_cond
+
+?not_cond: compare
+         | ("¬" | "not") not_cond               -> neg
+
+?compare: expr "=" expr                         -> eq
+        | expr ">" expr                         -> gr
+        | "(" cond ")"
+
+?expr: term
+     | expr "+" term                            -> add
+     | expr "-" term                            -> sub
+
+?term: factor
+     | term "*" factor                          -> mult
+
+?factor: NUMBER                                 -> num
+       | VAR                                    -> var
+       | "(" expr ")"
+
+
+VAR: /[A-Za-z][A-Za-z0-9_]*/
+NUMBER: /-?[0-9]+/
+
+%import common.WS
+%ignore WS
