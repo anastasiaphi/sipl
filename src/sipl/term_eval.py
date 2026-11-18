@@ -38,7 +38,7 @@ def show_cond(node, state):
 class TermEvaluator:
     """Застосовує терм програми до стану і записує всі кроки"""
 
-    def __init__(self, max_steps=10000)
+    def __init__(self, max_steps=10000):
         self.interpreter = Interpreter(max_steps)
         self.lines = []
 
