@@ -8,9 +8,7 @@ from sipl.ast import (
     Num, Var, BinOp, Compare, Or, Not,
 )
 
-
-PROJECT_DIR = Path(__file__).parent.parent.parent
-GRAMMAR_FILE = PROJECT_DIR / "grammar" / "sipl.lark"
+GRAMMAR_FILE = Path(__file__).parent / "sipl.lark"
 
 lark_parser = Lark.open(
     str(GRAMMAR_FILE),

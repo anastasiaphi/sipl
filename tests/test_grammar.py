@@ -4,7 +4,7 @@ from lark import Lark
 from lark.exceptions import LarkError
 
 PROJECT_DIR = Path(__file__).parent.parent
-GRAMMAR_FILE = PROJECT_DIR / "grammar" / "sipl.lark"
+GRAMMAR_FILE = PROJECT_DIR / "src" / "sipl" / "sipl.lark"
 EXAMPLES_DIR = PROJECT_DIR / "examples"
 
 parser = Lark.open(str(GRAMMAR_FILE), start="program", parser="lalr")
