@@ -14,7 +14,7 @@ class Span:
 
 
 class Node:
-    """Спільний батьківський клас для всіх вузлів AST."""
+    """Спільний батьківський клас для всіх вузлів AST"""
     pass
 
 @dataclass
@@ -34,7 +34,7 @@ class Var(Node):
 @dataclass
 class BinOp(Node):
     """Арифметична операція: a1 + a2, a1 - a2, a1 * a2"""
-    op: str          # "+", "-" або "*"
+    op: str
     left: Node
     right: Node
     span: Span = None
@@ -42,7 +42,7 @@ class BinOp(Node):
 @dataclass
 class Compare(Node):
     """Порівняння: a1 = a2, a1 > a2"""
-    op: str          # "=" або ">"
+    op: str
     left: Node
     right: Node
     span: Span = None
@@ -114,19 +114,18 @@ class Program(Node):
     span: Span = None
 
 def show_tree(node, level=0, with_spans=False):
-    """Повертає AST у вигляді дерева з відступами (щоб зручно друкувати)."""
+    """Повертає AST у вигляді дерева з відступами """
     indent = "  " * level
-    line = indent + type(node).__name__   
+    line = indent + type(node).__name__
     children = []
 
-    # проходимо по всіх полях вузла
     for field_name, value in vars(node).items():
         if field_name == "span":
             continue
         if isinstance(value, Node):
-            children.append(value)      
+            children.append(value)
         else:
-            line += " " + str(value)    
+            line += " " + str(value)
 
     if with_spans and node.span is not None:
         line += f"    [{node.span}]"

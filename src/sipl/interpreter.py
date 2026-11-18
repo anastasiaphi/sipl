@@ -26,7 +26,7 @@ class Interpreter:
     def run(self, program, state):
         """Виконує програму на стані state і повертає кінцевий стан."""
         self.steps = 0
-        state = dict(state)  
+        state = dict(state)
         self.exec_stmt(program.body, state)
         return state
 
