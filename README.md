@@ -27,7 +27,7 @@ sipl eval examples/power.sipl X=2 Y=3   обчислення терму з по�
 
 ## Структура проекту
 
-- `grammar/sipl.lark` - граматика
+- `src/sipl/sipl.lark` - граматика
 - `src/sipl/parser.py` - парсер (текст -> дерево)
 - `src/sipl/interpreter.py` - виконання програми
 - `src/sipl/semantics.py` - семантичний терм
