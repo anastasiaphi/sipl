@@ -1,4 +1,5 @@
 # sipl
+![CI](https://github.com/НІК/sipl/actions/workflows/ci.yml/badge.svg)
 Проєкт з теорії програмування.
 Парсер, інтерпретатор і семантичні терми для мови SIPL.
 
