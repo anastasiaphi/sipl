@@ -9,6 +9,9 @@ description = "Інструменти для мови SIPL: парсер, інт
 requires-python = ">=3.10"
 dependencies = ["lark>=1.1"]
 
+[project.scripts]
+sipl = "sipl.cli:main"
+
 [project.optional-dependencies]
 dev = ["pytest", "pytest-cov"]
 
